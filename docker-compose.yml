@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  db:
+  postgres:
     image: postgres:13
     environment:
       POSTGRES_DB: food_survey
@@ -23,7 +23,7 @@ services:
       POSTGRES_DB: food_survey
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_HOST: db
+      POSTGRES_HOST: postgres
       POSTGRES_PORT: 5432
 
   migrate:
@@ -37,7 +37,7 @@ services:
       POSTGRES_DB: food_survey
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_HOST: db
+      POSTGRES_HOST: postgres
       POSTGRES_PORT: 5432
 
 volumes:
