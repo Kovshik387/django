@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'food_survey.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': "postgres://user:password@db:5432/food_survey"
+    'default': dj_database_url.config('postgres://user:password@db:5432/food_survey')
 }
 
 
