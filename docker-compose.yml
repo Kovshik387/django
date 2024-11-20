@@ -18,7 +18,7 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      - postgres
     environment:
       POSTGRES_DB: food_survey
       POSTGRES_USER: user
@@ -32,7 +32,7 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - db
+      - postgres
     environment:
       POSTGRES_DB: food_survey
       POSTGRES_USER: user
