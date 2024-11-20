@@ -78,26 +78,12 @@ WSGI_APPLICATION = 'food_survey.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-POSTGRES_DB = os.environ.get('POSTGRES_DB', 'food_survey')
-POSTGRES_USER = os.environ.get('POSTGRES_USER', 'user')
-POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD', 'password')
-POSTGRES_HOST = os.environ.get('POSTGRES_HOST', 'postgres')
-POSTGRES_PORT = os.environ.get('POSTGRES_PORT', '5432')
-
-print(f"POSTGRES_DB: {POSTGRES_DB}")
-print(f"POSTGRES_USER: {POSTGRES_USER}")
-print(f"POSTGRES_PASSWORD: {POSTGRES_PASSWORD}")
-print(f"POSTGRES_HOST: {POSTGRES_HOST}")
-print(f"POSTGRES_PORT: {POSTGRES_PORT}")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': POSTGRES_DB,
-        'USER': POSTGRES_USER,
-        'PASSWORD': POSTGRES_PASSWORD,
-        'HOST': POSTGRES_HOST,
-        'PORT': POSTGRES_PORT,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

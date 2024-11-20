@@ -10,8 +10,12 @@ COPY . /app
 # Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Копируем скрипт entrypoint.sh и делаем его исполняемым
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
 # Открываем порт 8000
 EXPOSE 8000
 
-# Команда для запуска сервера разработки Django
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Устанавливаем entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"]
