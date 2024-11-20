@@ -20,7 +20,11 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://user:password@db:5432/food_survey
+      POSTGRES_DB: food_survey
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
 
   migrate:
     build: .
@@ -30,7 +34,11 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://user:password@db:5432/food_survey
+      POSTGRES_DB: food_survey
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
 
 volumes:
   postgres_data:
